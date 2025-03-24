@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Quantum Key Distribution (QKD) Simulation
+
+An interactive simulation of the BB84 Quantum Key Distribution protocol, built with Next.js.
+
+## Overview
+
+This project provides a visual and interactive simulation of the BB84 quantum key distribution protocol, one of the first quantum cryptography protocols developed by Charles Bennett and Gilles Brassard in 1984. It demonstrates how quantum mechanics can be used to establish secure communication channels.
+
+Visit the live simulation at [https://qkd-sim.vercel.app](https://qkd-sim.vercel.app)
+
+![QKD Simulation Screenshot](public/screenshot.png)
+
+## What is Quantum Key Distribution?
+
+Quantum Key Distribution is a secure communication method that uses principles of quantum mechanics to establish a shared secret key between two parties (usually called Alice and Bob). The security of this key exchange comes from the fundamental properties of quantum mechanics:
+
+1. **Quantum Measurement**: The act of measuring a quantum system disturbs it
+2. **No-Cloning Theorem**: It's impossible to create a perfect copy of an unknown quantum state
+
+This simulation specifically implements the BB84 protocol which uses quantum states of polarized photons to exchange secret keys.
+
+## Features
+
+- **Interactive Visualization**: See the quantum states and their transmission in real-time
+- **Basis Explanation**: Visual guide to the rectilinear and diagonal bases used in QKD
+- **Eve Simulation**: Toggle an eavesdropper to see how interception affects key generation
+- **Detailed Statistics**: Track the transmission process and observe the final key generation
+- **Quantum State Representation**: Visual representation of quantum polarization states
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 14.x or later
+- npm or yarn
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/RuchirKalokhe/QKD_sim
+cd qkd-simulation
+
+# Install dependencies
+npm install
+# or
+yarn install
+```
+
+### Running the Simulation
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the simulation.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## How It Works
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The simulation demonstrates these key steps of the BB84 protocol:
 
-## Learn More
+1. **Quantum Transmission**: Alice sends photons polarized randomly in one of four states
+2. **Basis Selection**: Bob measures each photon using randomly selected bases
+3. **Public Discussion**: Alice and Bob compare which bases they used (but not the actual results)
+4. **Key Sifting**: They keep only results where they used the same basis
+5. **Error Estimation**: In a real implementation, they would check for errors that might indicate eavesdropping
 
-To learn more about Next.js, take a look at the following resources:
+With the "Eve" toggle, you can see how an eavesdropper disrupts the communication, introducing errors that can be detected.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Technical Details
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project is built with:
 
-## Deploy on Vercel
+- **Next.js** - React framework
+- **TypeScript** - For type safety
+- **Canvas API** - For rendering quantum states
+- **Shadcn/ui** - For the UI components
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Learn More About QKD
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+To learn more about Quantum Key Distribution:
+
+- [Quantum Cryptography on Wikipedia](https://en.wikipedia.org/wiki/Quantum_cryptography)
+- [BB84 Protocol Explained](https://en.wikipedia.org/wiki/BB84)
+- [Introduction to Quantum Computing](https://qiskit.org/textbook/preface.html) - IBM's Qiskit Textbook
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
